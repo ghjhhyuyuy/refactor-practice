@@ -22,11 +22,7 @@ public class Taxi {
 
     public double getTotalCost() {
         double totalCost = 0;
-
-        // fixed charges
         totalCost += FIXED_CHARGE;
-
-        // taxi charges
         double peakTimeMultiple = peakTime ? PEAK_TIME_MULTIPLIER : OFF_PEAK_MULTIPLIER;
         if (airConditioned) {
             totalCost += Math.min(RATE_CHANGE_DISTANCE, totalKms) * PRE_RATE_CHANGE_AC_RATE * peakTimeMultiple;
