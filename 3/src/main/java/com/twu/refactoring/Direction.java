@@ -22,7 +22,7 @@ public class Direction {
         if (index < 0) {
             throw new IllegalArgumentException();
         }
-        return new Direction(directions.toCharArray()[(index + 3) % directionLength]);
+        return new Direction(directions.toCharArray()[(index + directionLength - 1) % directionLength]);
     }
 
     @Override
