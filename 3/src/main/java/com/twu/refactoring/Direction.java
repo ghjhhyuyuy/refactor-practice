@@ -2,39 +2,25 @@ package com.twu.refactoring;
 
 public class Direction {
     private final char direction;
-
+    private String directions = "ESWN";
     public Direction(char direction) {
         this.direction = direction;
     }
 
     public Direction turnRight() {
-        switch (direction) {
-            case 'N':
-                return new Direction('E');
-            case 'S':
-                return new Direction('W');
-            case 'E':
-                return new Direction('N');
-            case 'W':
-                return new Direction('S');
-            default:
-                throw new IllegalArgumentException();
+        int index = directions.indexOf(String.valueOf(direction));
+        if(index < 0){
+            throw new IllegalArgumentException();
         }
+        return new Direction(directions.toCharArray()[(index + 1)%4]);
     }
 
     public Direction turnLeft() {
-        switch (direction) {
-            case 'N':
-                return new Direction('W');
-            case 'S':
-                return new Direction('E');
-            case 'E':
-                return new Direction('N');
-            case 'W':
-                return new Direction('S');
-            default:
-                throw new IllegalArgumentException();
+        int index = directions.indexOf(String.valueOf(direction));
+        if(index < 0){
+            throw new IllegalArgumentException();
         }
+        return new Direction(directions.toCharArray()[(index + 3)%4]);
     }
 
     @Override
