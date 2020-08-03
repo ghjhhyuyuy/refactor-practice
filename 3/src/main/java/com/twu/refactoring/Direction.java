@@ -3,24 +3,26 @@ package com.twu.refactoring;
 public class Direction {
     private final char direction;
     private String directions = "ESWN";
+    private int directionLength = 4;
+
     public Direction(char direction) {
         this.direction = direction;
     }
 
     public Direction turnRight() {
         int index = directions.indexOf(String.valueOf(direction));
-        if(index < 0){
+        if (index < 0) {
             throw new IllegalArgumentException();
         }
-        return new Direction(directions.toCharArray()[(index + 1)%4]);
+        return new Direction(directions.toCharArray()[(index + 1) % directionLength]);
     }
 
     public Direction turnLeft() {
         int index = directions.indexOf(String.valueOf(direction));
-        if(index < 0){
+        if (index < 0) {
             throw new IllegalArgumentException();
         }
-        return new Direction(directions.toCharArray()[(index + 3)%4]);
+        return new Direction(directions.toCharArray()[(index + 3) % directionLength]);
     }
 
     @Override
